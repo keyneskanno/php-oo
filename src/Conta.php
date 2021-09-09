@@ -2,21 +2,9 @@
 
 class Conta
 {
-    public $cpfTitular;
-    public $nomeTitular;
-    public $saldo;
-
-    public function teste(){
-        echo "teste";
-    }
-
-    public function test(){
-        echo "abc";
-    }
-
-    public function testando(float $x){
-        echo $x;
-    }
+    private $cpfTitular;
+    private $nomeTitular;
+    private $saldo;
 
     public function sacar(float $valorSacar)
     {
@@ -46,6 +34,11 @@ class Conta
         $this->sacar($valorATransferir);
         $contaDestino->depositar($valorATransferir);
 
+    }
+
+    public function verSaldo(): float
+    {
+        return $this->saldo;
     }
 
 }
