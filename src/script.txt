@@ -11,5 +11,14 @@ php > $c2->transferir(525, $c2);
 php > $c2->transferir(125, $c2);
 php > echo $c2->saldo;
 
+php > require 'src/Conta.php';
+php > $c = new Conta();
+php > $c2 = new Conta();
+php > $c->depositar(1500);
+php > $c->transferir(400, $c2);
+php > $c->verSaldo();
+php > echo $c->verSaldo();
+
+
 
 
