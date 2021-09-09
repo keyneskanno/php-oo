@@ -1,1 +1,15 @@
+in php-oo folder:
+
+digite: php -a 
+
+php > require 'src/Conta.php';
+php > $c = new Conta();
+php > $c->deposita(1250);
+php > $c2 = new Conta();
+php > $c2->depositar(250);
+php > $c2->transferir(525, $c2);
+php > $c2->transferir(125, $c2);
+php > echo $c2->saldo;
+
+
 
