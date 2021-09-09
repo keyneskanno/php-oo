@@ -36,9 +36,29 @@ class Conta
 
     }
 
-    public function verSaldo(): float
+    public function defineCpfTitular(string $cpf): void
+    {
+        $this->cpfTitular = $cpf;
+    }
+
+    public function defineNomeTitular(string $nome): void
+    {
+        $this->nomeTitular = $nome;
+    }
+
+    public function recuperarSaldo(): float
     {
         return $this->saldo;
     }
+    public function recuperarCpfTitular(): string
+    {
+        return $this->cpfTitular;
+    }
+    public function recuperarNomeTitular(): string
+    {
+        return $this->nomeTitular;
+    }
+
+
 
 }
