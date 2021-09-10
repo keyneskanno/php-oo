@@ -2,26 +2,24 @@
 
 class Conta
 {
-    private $cpfTitular;
-    private $nomeTitular;
+
+    private $titular;
     private $saldo;
     private static $numeroDeContas = 0;
 
-    public function __construct(string $nomeTitular, string $cpfTitular)
+    public function __construct(Titular $titular)
     {
-        $this->nomeTitular = $this->validaNomeTitular($nomeTitular);
-        $this->cpfTitular = $cpfTitular;
+        $this->titular = $titular;
         $this->saldo = 0;
-        echo 'Criando uma nova conta de ' . $this->nomeTitular . PHP_EOL;
 
-        Conta::$numeroDeContas++;
+
+        self::$numeroDeContas++;
 
     }
     public function __destruct()
     {
-        if(self::$numeroDeContas >2){
-            echo "Há mais de uma conta ativa";
-        }
+        self::$numeroDeContas--;
+
     }
 
     public function sacar(float $valorSacar)
@@ -68,26 +66,26 @@ class Conta
     {
         return $this->saldo;
     }
-    public function recuperarCpfTitular(): string
-    {
-        return $this->cpfTitular;
+
+    public function recuperaNomeTitular(): string {
+        return $this->titular->recuperaNome();
     }
-    public function recuperarNomeTitular(): string
-    {
-        return $this->nomeTitular;
+    public function recuperaCpfTitular(): string {
+        return $this->titular->recuperaCpf();
     }
-    private function validaNomeTitular($nomeTitular): string{
-        if( strlen($nomeTitular) < 5){
-            echo 'Por favor insira o nome completo do titular';
-            exit;
-        }
-        return $nomeTitular;
+    public function recuperaTelefone():string {
+        return $this->titular->recuperaTelefone();
     }
+
+
+
+
 
     public static function recuperaNumeroDeContas(): int
     {
         return self::$numeroDeContas;
     }
+
 
 
 
